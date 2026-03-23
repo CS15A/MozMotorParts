@@ -1,0 +1,316 @@
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800;900&family=Barlow:wght@400;500;600&display=swap');
+  *{box-sizing:border-box;margin:0;padding:0;}
+  .w{font-family:'Barlow',sans-serif;background:#f5f4f1;color:#1a1a1a;width:100%;border-radius:12px;overflow:hidden;font-size:13px;}
+
+  /* TOPBAR */
+  .topbar{background:#1a1a1a;padding:5px 24px;display:flex;align-items:center;justify-content:space-between;}
+  .topbar-left{font-size:10px;color:#888;letter-spacing:1px;}
+  .topbar-right{display:flex;gap:16px;}
+  .topbar-right a{font-size:10px;color:#888;text-decoration:none;letter-spacing:1px;text-transform:uppercase;cursor:pointer;}
+  .topbar-right a.reg{color:#ff6a00;}
+
+  /* HEADER */
+  .header{background:#fff;border-bottom:3px solid #ff6a00;position:relative;overflow:hidden;}
+  .header-stripe{position:absolute;top:0;right:0;width:220px;height:100%;background:repeating-linear-gradient(45deg,transparent,transparent 10px,rgba(255,106,0,0.05) 10px,rgba(255,106,0,0.05) 12px);pointer-events:none;}
+  .header-inner{position:relative;display:flex;align-items:center;justify-content:space-between;padding:20px 28px 16px;}
+  .logo-wrap{display:flex;align-items:center;gap:14px;}
+  .logo-badge{background:#ff6a00;width:48px;height:48px;border-radius:4px;display:flex;align-items:center;justify-content:center;flex-direction:column;font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:11px;color:#fff;letter-spacing:1px;line-height:1.1;}
+  .logo-name{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:30px;letter-spacing:2px;color:#1a1a1a;line-height:1;}
+  .logo-name span{color:#ff6a00;}
+  .logo-tag{font-size:10px;color:#aaa;letter-spacing:3px;text-transform:uppercase;margin-top:3px;}
+  .header-actions{display:flex;align-items:center;gap:10px;}
+  .btn-outline{background:#fff;border:1.5px solid #ddd;color:#555;font-size:10px;font-family:'Barlow Condensed',sans-serif;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:8px 16px;border-radius:3px;cursor:pointer;}
+  .btn-orange{background:#ff6a00;border:none;color:#fff;font-size:10px;font-family:'Barlow Condensed',sans-serif;font-weight:900;letter-spacing:2px;text-transform:uppercase;padding:9px 18px;border-radius:3px;cursor:pointer;}
+
+  /* HERO */
+  .hero{background:#fff;padding:28px 28px 26px;border-top:1px solid #f0ede8;}
+  .hero-eyebrow{display:inline-flex;align-items:center;gap:6px;margin-bottom:10px;}
+  .hero-eyebrow span{display:block;width:20px;height:2px;background:#ff6a00;}
+  .hero-eyebrow p{font-size:10px;color:#ff6a00;text-transform:uppercase;letter-spacing:3px;}
+  .hero h1{font-family:'Barlow Condensed',sans-serif;font-size:38px;font-weight:900;text-transform:uppercase;line-height:1;letter-spacing:1px;color:#111;}
+  .hero h1 em{color:#ff6a00;font-style:normal;}
+  .hero-sub{font-size:12px;color:#888;margin-top:8px;line-height:1.7;max-width:360px;}
+  .hero-stats{display:flex;gap:28px;margin-top:20px;padding-top:20px;border-top:1px solid #f0ede8;}
+  .hs-num{font-family:'Barlow Condensed',sans-serif;font-size:26px;font-weight:900;color:#ff6a00;line-height:1;}
+  .hs-lbl{font-size:9px;color:#bbb;text-transform:uppercase;letter-spacing:1.5px;margin-top:2px;}
+
+  /* NAVBAR */
+  .navbar{background:#fff;border-bottom:1px solid #ebebeb;border-top:1px solid #f0ede8;display:flex;align-items:stretch;padding:0 20px;}
+  .nb-item{padding:13px 14px;font-family:'Barlow Condensed',sans-serif;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:#aaa;cursor:pointer;border-bottom:2px solid transparent;white-space:nowrap;}
+  .nb-item.on{color:#ff6a00;border-bottom-color:#ff6a00;}
+  .nb-item:hover{color:#333;}
+  .nb-sep{flex:1;}
+  .nb-icons{display:flex;align-items:center;gap:8px;}
+  .nb-icon{width:30px;height:30px;background:#f5f4f1;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:13px;cursor:pointer;border:1px solid #ebebeb;}
+
+  /* PROMO BANNER */
+  .promo-bar{background:#ff6a00;padding:9px 28px;display:flex;align-items:center;justify-content:center;gap:12px;}
+  .promo-bar p{font-family:'Barlow Condensed',sans-serif;font-size:12px;font-weight:700;color:#fff;text-transform:uppercase;letter-spacing:2px;}
+  .promo-badge{background:#fff;color:#ff6a00;font-size:9px;font-weight:700;padding:2px 8px;border-radius:2px;letter-spacing:1px;}
+
+  /* CATEGORIES */
+  .section{padding:28px;background:#f5f4f1;}
+  .sec-hdr{display:flex;align-items:center;justify-content:space-between;margin-bottom:20px;}
+  .sec-title{font-family:'Barlow Condensed',sans-serif;font-size:18px;font-weight:900;text-transform:uppercase;letter-spacing:2px;color:#111;display:flex;align-items:center;gap:8px;}
+  .sec-title::before{content:'';display:block;width:4px;height:20px;background:#ff6a00;border-radius:1px;}
+  .sec-link{font-size:10px;color:#ff6a00;text-transform:uppercase;letter-spacing:1px;cursor:pointer;}
+
+  .cat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;}
+  .cat-card{background:#fff;border:1px solid #e8e5e0;border-radius:10px;overflow:hidden;cursor:pointer;}
+  .cat-img{height:140px;display:flex;align-items:center;justify-content:center;font-size:52px;position:relative;}
+  .cat-img-acess{background:#fff8f3;}
+  .cat-img-pecas{background:#f3f7ff;}
+  .cat-img-kit{background:#f3fff5;}
+  .cat-top-bar{position:absolute;top:0;left:0;right:0;height:3px;}
+  .cat-top-bar.orange{background:#ff6a00;}
+  .cat-top-bar.blue{background:#1a6fff;}
+  .cat-top-bar.green{background:#2aa84a;}
+  .cat-body{padding:14px 16px;}
+  .cat-name{font-family:'Barlow Condensed',sans-serif;font-size:16px;font-weight:800;text-transform:uppercase;letter-spacing:1px;color:#1a1a1a;}
+  .cat-desc{font-size:11px;color:#999;margin-top:4px;line-height:1.6;}
+  .cat-footer{display:flex;align-items:center;justify-content:space-between;margin-top:12px;padding-top:10px;border-top:1px solid #f0ede8;}
+  .cat-count{font-size:10px;color:#ccc;letter-spacing:1px;}
+  .cat-arrow{color:#ff6a00;font-size:14px;font-weight:700;}
+
+  /* SOBRE NÓS */
+  .sobre{padding:28px;background:#fff;border-top:1px solid #ebebeb;}
+  .sobre-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:20px;}
+  .sobre-text p{font-size:12px;color:#666;line-height:1.9;}
+  .sobre-text p+p{margin-top:10px;}
+  .sobre-text strong{color:#ff6a00;font-weight:600;}
+  .sobre-vals{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+  .val-item{background:#f9f8f5;border:1px solid #ebebeb;border-radius:8px;padding:14px 12px;}
+  .val-icon{font-size:20px;margin-bottom:6px;}
+  .val-title{font-family:'Barlow Condensed',sans-serif;font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:#1a1a1a;}
+  .val-desc{font-size:10px;color:#aaa;margin-top:3px;line-height:1.6;}
+
+  /* CONTACTO */
+  .contact{padding:28px;background:#f5f4f1;border-top:1px solid #ebebeb;}
+  .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:20px;}
+  .contact-info{display:flex;flex-direction:column;gap:12px;}
+  .ci-item{display:flex;align-items:flex-start;gap:12px;}
+  .ci-icon{width:36px;height:36px;background:#fff;border:1px solid #e8e5e0;border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:15px;flex-shrink:0;}
+  .ci-label{font-size:10px;color:#bbb;text-transform:uppercase;letter-spacing:1px;}
+  .ci-val{font-size:12px;color:#444;margin-top:2px;}
+  .contact-form{display:flex;flex-direction:column;gap:8px;}
+  .cf-input{background:#fff;border:1px solid #e0ddd8;border-radius:6px;padding:10px 12px;color:#333;font-size:11px;font-family:'Barlow',sans-serif;outline:none;width:100%;}
+  .cf-input::placeholder{color:#ccc;}
+  .cf-row{display:grid;grid-template-columns:1fr 1fr;gap:8px;}
+  .cf-submit{background:#ff6a00;border:none;color:#fff;font-family:'Barlow Condensed',sans-serif;font-size:12px;font-weight:900;letter-spacing:2px;text-transform:uppercase;padding:11px;border-radius:6px;cursor:pointer;margin-top:4px;}
+
+  /* FOOTER */
+  .footer{background:#1a1a1a;padding:16px 28px;display:flex;align-items:center;justify-content:space-between;}
+  .footer-brand{font-family:'Barlow Condensed',sans-serif;font-size:16px;font-weight:900;letter-spacing:2px;color:#555;}
+  .footer-brand span{color:#ff6a00;}
+  .footer-copy{font-size:10px;color:#444;letter-spacing:0.5px;}
+  .footer-social{display:flex;gap:8px;}
+  .soc{width:28px;height:28px;background:#222;border:0.5px solid #333;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:10px;color:#555;font-weight:700;cursor:pointer;}
+</style>
+
+<div class="w">
+
+  <!-- TOPBAR -->
+  <div class="topbar">
+    <div class="topbar-left">📍 Maputo, Moçambique &nbsp;·&nbsp; Seg–Sáb 8h–18h</div>
+    <div class="topbar-right">
+      <a>Login</a>
+      <a class="reg">Register</a>
+      <a>Ajuda</a>
+    </div>
+  </div>
+
+  <!-- HEADER -->
+  <div class="header">
+    <div class="header-stripe"></div>
+    <div class="header-inner">
+      <div class="logo-wrap">
+        <div class="logo-badge"><div>MOZ</div><div>ATV</div></div>
+        <div>
+          <div class="logo-name"><span>Moz</span>MotorParts</div>
+          <div class="logo-tag">Peças · Acessórios · Service</div>
+        </div>
+      </div>
+      <div class="header-actions">
+        <button class="btn-outline">🔍 Pesquisar</button>
+        <button class="btn-orange">🛒 Carrinho (0)</button>
+      </div>
+    </div>
+    <div class="hero">
+      <div class="hero-eyebrow"><span></span><p>Loja oficial ATV</p></div>
+      <h1>A Potência<br><em>Começa Aqui</em></h1>
+      <p class="hero-sub">Peças originais, acessórios e kits de service para a sua ATV. Entrega rápida em todo Moçambique.</p>
+      <div class="hero-stats">
+        <div><div class="hs-num">+500</div><div class="hs-lbl">Peças em stock</div></div>
+        <div><div class="hs-num">48h</div><div class="hs-lbl">Entrega Maputo</div></div>
+        <div><div class="hs-num">5★</div><div class="hs-lbl">Avaliação média</div></div>
+        <div><div class="hs-num">3+</div><div class="hs-lbl">Anos no mercado</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- NAVBAR -->
+  <div class="navbar">
+    <div class="nb-item on">Início</div>
+    <div class="nb-item">Motos ATV</div>
+    <div class="nb-item">Peças</div>
+    <div class="nb-item">Acessórios</div>
+    <div class="nb-item">Kit Service</div>
+    <div class="nb-item">Sobre Nós</div>
+    <div class="nb-item">Contacto</div>
+    <div class="nb-sep"></div>
+    <div class="nb-icons">
+      <div class="nb-icon">🔍</div>
+      <div class="nb-icon">🛒</div>
+    </div>
+  </div>
+
+  <!-- PROMO BANNER -->
+  <div class="promo-bar">
+    <div class="promo-badge">PROMO</div>
+    <p>Kit Service Completo com 15% de desconto este mês — quantidade limitada</p>
+    <div class="promo-badge">→ VER OFERTA</div>
+  </div>
+
+  <!-- CATEGORIAS -->
+  <div class="section">
+    <div class="sec-hdr">
+      <div class="sec-title">Categorias</div>
+      <div class="sec-link">Ver tudo →</div>
+    </div>
+    <div class="cat-grid">
+
+      <div class="cat-card">
+        <div class="cat-img cat-img-acess">
+          <div class="cat-top-bar orange"></div>
+          🪖
+        </div>
+        <div class="cat-body">
+          <div class="cat-name">Acessórios</div>
+          <div class="cat-desc">Capacetes, luvas, botas e protecções para cada aventura off-road.</div>
+          <div class="cat-footer">
+            <div class="cat-count">+80 produtos</div>
+            <div class="cat-arrow">→</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="cat-card">
+        <div class="cat-img cat-img-pecas">
+          <div class="cat-top-bar blue"></div>
+          ⚙️
+        </div>
+        <div class="cat-body">
+          <div class="cat-name">Peças</div>
+          <div class="cat-desc">Motor, suspensão, travões, transmissão e eléctricas originais.</div>
+          <div class="cat-footer">
+            <div class="cat-count">+320 produtos</div>
+            <div class="cat-arrow">→</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="cat-card">
+        <div class="cat-img cat-img-kit">
+          <div class="cat-top-bar green"></div>
+          🔧
+        </div>
+        <div class="cat-body">
+          <div class="cat-name">Kit Service</div>
+          <div class="cat-desc">Kits completos para manutenção preventiva. Básico, Completo e Competição.</div>
+          <div class="cat-footer">
+            <div class="cat-count">3 kits disponíveis</div>
+            <div class="cat-arrow">→</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- SOBRE NÓS -->
+  <div class="sobre">
+    <div class="sec-hdr">
+      <div class="sec-title">Sobre Nós</div>
+    </div>
+    <div class="sobre-grid">
+      <div class="sobre-text">
+        <p>A <strong>MozMotorParts</strong> nasceu da paixão pelo mundo off-road. Somos a referência em Moçambique para peças e acessórios de motos ATV — com foco em qualidade, rapidez e apoio técnico especializado.</p>
+        <p>Com sede em <strong>Maputo</strong>, servimos clientes em todo o país. Trabalhamos com as marcas mais reconhecidas do sector e garantimos compatibilidade com os modelos mais usados no mercado local.</p>
+      </div>
+      <div class="sobre-vals">
+        <div class="val-item">
+          <div class="val-icon">🏆</div>
+          <div class="val-title">Qualidade</div>
+          <div class="val-desc">Peças originais e certificadas</div>
+        </div>
+        <div class="val-item">
+          <div class="val-icon">⚡</div>
+          <div class="val-title">Rapidez</div>
+          <div class="val-desc">Entrega em 48h em Maputo</div>
+        </div>
+        <div class="val-item">
+          <div class="val-icon">🛠️</div>
+          <div class="val-title">Suporte</div>
+          <div class="val-desc">Apoio técnico especializado</div>
+        </div>
+        <div class="val-item">
+          <div class="val-icon">📦</div>
+          <div class="val-title">Stock</div>
+          <div class="val-desc">+500 referências disponíveis</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CONTACTO -->
+  <div class="contact">
+    <div class="sec-hdr">
+      <div class="sec-title">Contacto</div>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-info">
+        <div class="ci-item">
+          <div class="ci-icon">📍</div>
+          <div><div class="ci-label">Morada</div><div class="ci-val">Av. Eduardo Mondlane, Maputo</div></div>
+        </div>
+        <div class="ci-item">
+          <div class="ci-icon">📞</div>
+          <div><div class="ci-label">Telefone / WhatsApp</div><div class="ci-val">+258 84 000 0000</div></div>
+        </div>
+        <div class="ci-item">
+          <div class="ci-icon">✉️</div>
+          <div><div class="ci-label">Email</div><div class="ci-val">info@mozomotorparts.co.mz</div></div>
+        </div>
+        <div class="ci-item">
+          <div class="ci-icon">🕐</div>
+          <div><div class="ci-label">Horário</div><div class="ci-val">Segunda a Sábado, 8h–18h</div></div>
+        </div>
+      </div>
+      <div class="contact-form">
+        <div class="cf-row">
+          <input class="cf-input" placeholder="Nome" />
+          <input class="cf-input" placeholder="Telefone" />
+        </div>
+        <input class="cf-input" placeholder="Email" />
+        <input class="cf-input" placeholder="Assunto (ex: orçamento de peças)" />
+        <textarea class="cf-input" rows="3" placeholder="Mensagem..."></textarea>
+        <button class="cf-submit">Enviar Mensagem →</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <div class="footer-brand"><span>Moz</span>MotorParts</div>
+    <div class="footer-copy">© 2025 MozMotorParts · Maputo, Moçambique</div>
+    <div class="footer-social">
+      <div class="soc">f</div>
+      <div class="soc">ig</div>
+      <div class="soc">wa</div>
+      <div class="soc">yt</div>
+    </div>
+  </div>
+
+</div>
