@@ -21,7 +21,7 @@
 }
 
 body {
-    background-color: var(--color3);
+    background-color: var(--color1);
     font-family: var(--default-font);
 }
 
@@ -67,6 +67,7 @@ header div {
     border: 1px solid var(--border);
     margin-bottom: 5px;
     padding: 5px;
+    background-color: var(--color3);
 }
 
 header div > h2 {
