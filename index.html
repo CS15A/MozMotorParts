@@ -3,99 +3,113 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" href="style.css">
     <title>Moz MotorParts</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header>
-        <nav id="nav1">
+        <nav id="topNav">
             <a href="#">Login</a>
             <a href="#">Register</a>
             <a href="#">Ajuda</a>
         </nav>
-        <h1>Moz MotorParts</h1>
-        <p>A Potência começa aqui!</p>
-        <div>
-            <h2>Loja Oficial ATV</h2>
-            <p>
-                Peças originais, acessórios e kits de service para a sua
-                ATV. <br> Entrega rápida em todo Moçambique.
-            </p>
+        <div class="header-hero">
+            <h1>Moz MotorParts</h1>
+            <p class="header-tagline">A Potência começa aqui!</p>
+            <div class="header-banner">
+                <h2>Loja Oficial ATV</h2>
+                <p>
+                    Peças originais, acessórios e kits de service para a sua
+                    ATV. <br> Entrega rápida em todo Moçambique.
+                </p>
+            </div>
         </div>
-        <nav id="nav2">
-            <a href="#">Ínicio</a>
-            <a href="#">Motorizadas</a>
-            <a href="#">Peças</a>
-            <a href="#">Acessórios</a>
-            <a href="#">KIT Manutenção</a>
-            <a href="#">Sobre nós</a>
-            <a href="#">Contacto</a>
+        <nav id="headerNav">
+            <button class="nav-toggle" id="navToggle" aria-label="Abrir menu">&#9776;</button>
+            <div class="nav-links" id="navLinks">
+                <a href="#">Ínicio</a>
+                <a href="#">Motorizadas</a>
+                <a href="#">Peças</a>
+                <a href="#">Acessórios</a>
+                <a href="#">KIT Manutenção</a>
+                <a href="#">Sobre nós</a>
+                <a href="#">Contacto</a>
+            </div>
         </nav>
     </header>
     <main>
-        <h2>Categorias</h2>
-        <div id="categorias">
-            <div class="moldure">
-                <img src="Images/atv acessories.png" alt="acessories">
-                <div class="caption">
-                    <h4>Acessórios</h4>
-                    <p>Capacetes, luvas, botas e protecções para cada aventura off-road.</p>
+        <div class="divColor3">
+            <h2>Categorias</h2>
+            <div id="categorias">
+                <div class="moldure">
+                    <img src="Images/atv acessories.png" alt="acessories">
+                    <div class="caption">
+                        <h4>Acessórios</h4>
+                        <p>Capacetes, luvas, botas e protecções para cada aventura off-road.</p>
+                    </div>
                 </div>
-            </div>
-            <div class="moldure">
-                <img src="Images/atv pecas.png" alt="pecas">
-                <div class="caption">
-                    <h4>Peças</h4>
-                    <p>Motor, suspensão, travões, transmissão e elétricas originais.</p>
+                <div class="moldure">
+                    <img src="Images/atv pecas.png" alt="pecas">
+                    <div class="caption">
+                        <h4>Peças</h4>
+                        <p>Motor, suspensão, travões, transmissão e elétricas originais.</p>
+                    </div>
                 </div>
-            </div>
-            <div class="moldure">
-                <img src="Images/atv kit service.png" alt="kitservice">
-                <div class="caption">
-                    <h4>KIT Manutenção</h4>
-                    <p>Kits completos para manutenção preventiva. Básico, Completo e Competição.</p>
+                <div class="moldure">
+                    <img src="Images/atv kit service.png" alt="kitservice">
+                    <div class="caption">
+                        <h4>KIT Manutenção</h4>
+                        <p>Kits completos para manutenção preventiva. Básico, Completo e Competição.</p>
+                    </div>
                 </div>
             </div>
         </div>
-
         <aside>
-            <div>
+            <div id="aboutUs">
                 <h2>Sobre Nós</h2>
                 <p>
-                    A MozMotorParts nasceu da paixão pelo mundo off-road. <br>
+                    A <span>MozMotorParts</span> nasceu da paixão pelo mundo off-road. <br>
                     Somos a referência em Moçambique para peças e acessórios
                     de motos <br> ATV — com foco em qualidade, rapidez e apoio técnico
                     especializado.
                     <br>
-                    Com sede em Maputo, servimos clientes em todo o país. <br>
+                    Com sede em <span>Maputo</span>, servimos clientes em todo o país. <br>
                     Trabalhamos com as marcas mais reconhecidas do sector <br>
                     e garantimos compatibilidade com os modelos mais usados <br>
                     no mercado local.
                 </p>
             </div>
-            <div>
+            <div class="divColor3">
                 <h2>Contacto</h2>
-                <label>Morada</label>
-                <input type="text">
-                <br>
-                <label>Telefone/Whatsapp</label>
-                <input type="text">
-                <br>
-                <label>Email</label>
-                <input type="text">
-                <p>Horário</p>
+                <div class="contact-form">
+                    <div class="contact-field">
+                        <label>Morada</label>
+                        <input type="text" placeholder="A sua morada">
+                    </div>
+                    <div class="contact-field">
+                        <label>Telefone / WhatsApp</label>
+                        <input type="text" placeholder="+258 8X XXX XXXX">
+                    </div>
+                    <div class="contact-field">
+                        <label>Email</label>
+                        <input type="email" placeholder="email@exemplo.com">
+                    </div>
+                    <div class="contact-field">
+                        <label>Horário de Funcionamento</label>
+                        <p class="horario">Seg – Sex: 08h00 – 18h00 &nbsp;|&nbsp; Sáb: 09h00 – 13h00</p>
+                    </div>
+                    <button class="contact-btn">Enviar Mensagem</button>
+                </div>
             </div>
         </aside>
     </main>
     <footer>
-        <picture>
-            <img src="" alt="">
-            <p>2025</p>
-            <img src="" alt="">
-            <img src="" alt="">
-            <img src="" alt="">
-        </picture>
+        <div class="footer-inner">
+          <div class="footer-left">
+            <p id="footerTitle">Moz MotorParts</p>
+            <p class="footer-copy">&copy; 2025 Todos os direitos reservados.</p>
+          </div> 
+        </div>
     </footer>
 </body>
 </html>
